@@ -39,7 +39,7 @@ public class CustomerControllerIT {
 
 	@Test
 	public void givenCustomerURL_whenMockMVC_thenVerifyResponse() throws Exception {
-		final MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get("/customer")).andDo(print())
+		final MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get("/customers/1")).andDo(print())
 				.andExpect(MockMvcResultMatchers.status().isOk())
 				.andExpect(MockMvcResultMatchers.jsonPath("$.firstName").value("Tweet")).andReturn();
 		Assert.assertEquals(CONTENT_TYPE, mvcResult.getResponse().getContentType());
@@ -49,9 +49,9 @@ public class CustomerControllerIT {
 
 	@Test
 	public void givenBadRequest_whenMockMVC_thenVerifyResponse() throws Exception {
-		final MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get("/bad")).andDo(print())
-				.andExpect(MockMvcResultMatchers.status().isOk())
-				.andExpect(MockMvcResultMatchers.jsonPath("$.firstName").value("Tweet")).andReturn();
+		final MvcResult mvcResult = this.mockMvc.perform(MockMvcRequestBuilders.get("/customers/notfound/2")).andDo(print())
+				.andExpect(MockMvcResultMatchers.status().isBadRequest())
+				.andExpect(MockMvcResultMatchers.jsonPath("$.title").value("Customer not found")).andReturn();
 		Assert.assertEquals(CONTENT_TYPE, mvcResult.getResponse().getContentType());
 	}
 

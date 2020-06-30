@@ -8,10 +8,10 @@ Feature: Managing customers
         
    Examples:
    
-    | id             | age                      |
-    | 9              | 22                         |
-    | 8              | 21                         |
-    | 3 		     | 23                         |
+    | id             | age                        |
+    | 1              | 28                         |
+    | 2              | 21                         |
+    | 3 		     | 22                         |
    
    @critical 
    Scenario Outline: Retrieve customer gender by identifier
@@ -22,6 +22,6 @@ Feature: Managing customers
    Examples:
    
     | id             | gender |
-    | 9              | 77577  |
-    | 8              | 79521  |
-    | 3 		     | 54662  |     
+    | 1              | M      |
+    | 2              | F      |
+    | 3 		     | F      |     
