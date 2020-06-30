@@ -1,32 +1,35 @@
 server:
-  port: 8080
+  port: 8088
+  
+security:
+  basic:
+    enabled: false
 
 logging:
   level:
     ROOT: DEBUG
-    com.mycomp.test: DEBUG
+    com.mycomp.test: INFO
     
 spring:
   service:
     name: crm
-  devtools:
-    restart:
-      enabled: true
 
   datasource:
-    type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:mem:product;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     username: admin
     password:
-    hikari:
-      poolName: Hikari
-      auto-commit: false
+    platform: h2
+    continue-on-error: true
+    driver-class-name: org.h2.Driver
   h2:
     console:
-      enabled: true
+      enabled: false
   jpa:
     database-platform: io.github.jhipster.domain.util.FixedH2Dialect
     show-sql: true
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: faker
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+  
+    

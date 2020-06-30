@@ -2,13 +2,13 @@ package com.mycomp.test.dto;
 
 public class CustomerDto {
 	
-	private Integer id;
+	private Long id;
 	private Integer age;
 	private String gender;
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Integer getAge() {
@@ -23,7 +23,7 @@ public class CustomerDto {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public CustomerDto(Integer id, Integer age, String gender) {
+	public CustomerDto(Long id, Integer age, String gender) {
 		super();
 		this.id = id;
 		this.age = age;
